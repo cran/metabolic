@@ -6,21 +6,32 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/metabolic)](https://CRAN.R-project.org/package=metabolic)
 [![R build
 status](https://github.com/fmmattioni/metabolic/workflows/R-CMD-check/badge.svg)](https://github.com/fmmattioni/metabolic/actions)
+[![Monthly downloads
+badge](https://cranlogs.r-pkg.org/badges/last-month/metabolic?color=blue)](https://CRAN.R-project.org/package=metabolic)
+[![Total downloads
+badge](https://cranlogs.r-pkg.org/badges/grand-total/metabolic?color=blue)](https://CRAN.R-project.org/package=metabolic)
 <!-- badges: end -->
 
 The goal of `metabolic` is to provide all the data and the tools
 necessary to reproduce the meta-analysis published in [Medicine &
 Science in Sports &
-Exercise](https://journals.lww.com/acsm-msse/Abstract/9000/Effectiveness_of_HIIE_versus_MICT_in_Improving.96194.aspx).
+Exercise](https://journals.lww.com/acsm-msse/Fulltext/2021/03000/Effectiveness_of_HIIE_versus_MICT_in_Improving.12.aspx).
 
 ## Installation
 
-You can install the development version of metabolic from from
+You can install the released version of `metabolic` from
+[CRAN](https://CRAN.R-project.org/package=metabolic) with:
+
+``` r
+install.packages("metabolic")
+```
+
+You can install the development version of `metabolic` from from
 [GitHub](https://github.com/fmmattioni/metabolic) with:
 
 ``` r
@@ -34,19 +45,19 @@ remotes::install_github("fmmattioni/metabolic")
 
 ``` r
 metabolic::metabolic_meta
-#> # A tibble: 391 x 21
-#>    study endpoint population   age category_age duration category_durati…
-#>    <chr> <chr>    <fct>      <dbl> <fct>           <dbl> <fct>           
-#>  1 Abde… BMI      T2D         54.6 > 50 y              8 5 - 10 weeks    
-#>  2 Abde… HbA1c    T2D         54.6 > 50 y              8 5 - 10 weeks    
-#>  3 Abde… HDL      T2D         54.6 > 50 y              8 5 - 10 weeks    
-#>  4 Abde… HOMA-IR  T2D         54.6 > 50 y              8 5 - 10 weeks    
-#>  5 Abde… LDL      T2D         54.6 > 50 y              8 5 - 10 weeks    
-#>  6 Abde… Total C… T2D         54.6 > 50 y              8 5 - 10 weeks    
-#>  7 Abde… Triglyc… T2D         54.6 > 50 y              8 5 - 10 weeks    
-#>  8 Bækk… Body Ma… Overweigh…  40   30 - 50 y           6 5 - 10 weeks    
-#>  9 Bækk… Flow-me… Overweigh…  40   30 - 50 y           6 5 - 10 weeks    
-#> 10 Bækk… VO2max   Overweigh…  40   30 - 50 y           6 5 - 10 weeks    
+#> # A tibble: 391 × 21
+#>    study        endpoint population   age category_age duration category_durati…
+#>    <chr>        <chr>    <fct>      <dbl> <fct>           <dbl> <fct>           
+#>  1 Abdelbasset… BMI      T2D         54.6 > 50 y              8 5 - 10 weeks    
+#>  2 Abdelbasset… HbA1c    T2D         54.6 > 50 y              8 5 - 10 weeks    
+#>  3 Abdelbasset… HDL      T2D         54.6 > 50 y              8 5 - 10 weeks    
+#>  4 Abdelbasset… HOMA-IR  T2D         54.6 > 50 y              8 5 - 10 weeks    
+#>  5 Abdelbasset… LDL      T2D         54.6 > 50 y              8 5 - 10 weeks    
+#>  6 Abdelbasset… Total C… T2D         54.6 > 50 y              8 5 - 10 weeks    
+#>  7 Abdelbasset… Triglyc… T2D         54.6 > 50 y              8 5 - 10 weeks    
+#>  8 Bækkerud 20… Body Ma… Overweigh…  40   30 - 50 y           6 5 - 10 weeks    
+#>  9 Bækkerud 20… Flow-me… Overweigh…  40   30 - 50 y           6 5 - 10 weeks    
+#> 10 Bækkerud 20… VO2max   Overweigh…  40   30 - 50 y           6 5 - 10 weeks    
 #> # … with 381 more rows, and 14 more variables: men_ratio <dbl>,
 #> #   category_men_ratio <fct>, type_exercise <chr>, bsln <dbl>,
 #> #   bsln_adjusted <dbl>, category_bsln <fct>, N_HIIE <dbl>, Mean_HIIE <dbl>,
@@ -58,7 +69,7 @@ metabolic::metabolic_meta
 
 ``` r
 metabolic::metabolic_gofer
-#> # A tibble: 115 x 33
+#> # A tibble: 115 × 33
 #>    study groups sample_populati… sample_fitness sample_men_ratio anamnese_smoker
 #>    <chr> <chr>  <chr>            <chr>                     <dbl> <chr>          
 #>  1 Abde… HIIT   "T2D"            N/R                        0.63 N              
@@ -77,12 +88,7 @@ metabolic::metabolic_gofer
 #> #   design_training_duration <dbl>, design_training_frequency <chr>,
 #> #   design_exercise_intensity <chr>, hiie_n_reps <chr>,
 #> #   hiie_rep_duration <chr>, hiie_work_rest_ratio <chr>, compliance <dbl>,
-#> #   endpoints_vo2max <chr>, endpoints_fmd <chr>, endpoints_body_mass <chr>,
-#> #   endpoints_body_fat <chr>, endpoints_sbp <chr>, endpoints_dbp <chr>,
-#> #   endpoints_hdl <chr>, endpoints_ldl <chr>, endpoints_triglycerides <chr>,
-#> #   endpoints_total_cholesterol <chr>, endpoints_insulin <chr>,
-#> #   endpoints_glucose <chr>, endpoints_homa <chr>, endpoints_bmi <chr>,
-#> #   endpoints_crp <chr>, endpoints_hba1c <chr>
+#> #   endpoints_vo2max <chr>, endpoints_fmd <chr>, endpoints_body_mass <chr>, …
 ```
 
 ## Reproduce meta-analysis for each clinical endpoint
@@ -91,20 +97,27 @@ metabolic::metabolic_gofer
 library(metabolic)
 
 perform_meta(endpoint = "VO2max")
-#> ────────────────────────────────────────────  * VO2max meta-analysis *  ────────────────────────────────────────────
-#> ✓ 'Overall'
-#> ✓       └─ Performing meta-analysis
-#> ✓       └─ Performing sensitivity analysis
-#> ✓                └─ Meta-analysis results are robust! Keep going!
-#> ✓ Performing meta-analysis and meta-regression on the Population subgroup
-#> ✓ Performing meta-analysis and meta-regression on the Age subgroup
-#> ✓ Performing meta-analysis and meta-regression on the Training Duration subgroup
-#> ✓ Performing meta-analysis and meta-regression on the Men Ratio subgroup
-#> ✓ Performing meta-analysis and meta-regression on the Type of Exercise subgroup
-#> ✓ Performing meta-analysis and meta-regression on the Baseline subgroup
-#> ✓ Performing meta-analysis and meta-regression on the Type of HIIE subgroup
-#> ────────────────────────────────────────────────────  * DONE *  ────────────────────────────────────────────────────
-#> # A tibble: 8 x 4
+#> ──────────────────────────  * VO2max meta-analysis *  ──────────────────────────
+#> ✔ 'Overall'
+#> ✔       └─ Performing meta-analysis
+#> ✔       └─ Performing sensitivity analysis
+#> ✔                └─ Meta-analysis results are robust! Keep going!
+#> ✔ Performing meta-analysis and meta-regression on the Population subgroup
+#> 
+#> ✔ Performing meta-analysis and meta-regression on the Age subgroup
+#> 
+#> ✔ Performing meta-analysis and meta-regression on the Training Duration subgroup
+#> 
+#> ✔ Performing meta-analysis and meta-regression on the Men Ratio subgroup
+#> 
+#> ✔ Performing meta-analysis and meta-regression on the Type of Exercise subgroup
+#> 
+#> ✔ Performing meta-analysis and meta-regression on the Baseline subgroup
+#> 
+#> ✔ Performing meta-analysis and meta-regression on the Type of HIIE subgroup
+#> 
+#> ──────────────────────────────────  * DONE *  ──────────────────────────────────
+#> # A tibble: 8 × 4
 #>   subgroup          meta_analysis sensitivity_analysis meta_regression
 #>   <chr>             <named list>  <named list>         <named list>   
 #> 1 Overall           <metacont>    <metainf>            <lgl [1]>      
@@ -134,7 +147,7 @@ citation("metabolic")
 #> Sports & Exercise_, *Published Ahead of Print*. doi:
 #> 10.1249/MSS.0000000000002506 (URL:
 #> https://doi.org/10.1249/MSS.0000000000002506), <URL:
-#> https://journals.lww.com/10.1249/MSS.0000000000002506>.
+#> https://journals.lww.com/acsm-msse/Abstract/9000/Effectiveness_of_HIIE_versus_MICT_in_Improving.96194.aspx>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -144,7 +157,7 @@ citation("metabolic")
 #>     journal = {Medicine & Science in Sports & Exercise},
 #>     volume = {Published Ahead of Print},
 #>     year = {2020},
-#>     url = {https://journals.lww.com/10.1249/MSS.0000000000002506},
+#>     url = {https://journals.lww.com/acsm-msse/Abstract/9000/Effectiveness_of_HIIE_versus_MICT_in_Improving.96194.aspx},
 #>     doi = {10.1249/MSS.0000000000002506},
 #>   }
 ```
