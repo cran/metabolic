@@ -1,6 +1,6 @@
 Package: metabolic
 Title: Datasets and Functions for Reproducing Meta-Analyses
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person(given = "Felipe",
            family = "Mattioni Maturana",
@@ -26,9 +26,9 @@ Suggests: knitr, here, Rd2roxygen, kableExtra, fansi, downloadthis (>=
         0.2.0), spelling
 Language: en-US
 NeedsCompilation: no
-Packaged: 2022-09-09 06:36:46 UTC; fmattioni
+Packaged: 2023-10-10 07:20:59 UTC; fmattioni
 Author: Felipe Mattioni Maturana [aut, cre, cph]
     (<https://orcid.org/0000-0002-4221-6104>)
 Maintainer: Felipe Mattioni Maturana <felipe.mattioni@med.uni-tuebingen.de>
 Repository: CRAN
-Date/Publication: 2022-09-09 07:02:59 UTC
+Date/Publication: 2023-10-10 07:40:02 UTC
